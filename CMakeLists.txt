@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.10)
-project (muondetector LANGUAGES CXX C VERSION 2.1.0)
+project (muondetector LANGUAGES CXX C)
 
 string(TIMESTAMP PROJECT_DATE_STRING "%b %d, %Y")
 
