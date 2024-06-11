@@ -383,15 +383,15 @@ Daemon::Daemon(configuration cfg, QObject* parent)
                 qDebug() << "successfully setting threshold registers";
             else
                 qWarning() << "error: failed setting threshold registers";
-            qDebug() << "single ended channels:";
-            qDebug() << "ch0:" << ads1115_p->readADC(0) << "ch1:" << ads1115_p->readADC(1)
-                     << "ch2: " << ads1115_p->readADC(2) << "ch3:" << ads1115_p->readADC(3);
-            ads1115_p->setDiffMode(true);
-            qDebug() << "diff channels:";
-            qDebug() << "ch0-1:" << ads1115_p->readADC(0) << "ch0-3: " << ads1115_p->readADC(1)
-                     << "ch1-3:" << ads1115_p->readADC(2) << "ch2-3: " << ads1115_p->readADC(3);
-            ads1115_p->setDiffMode(false);
-            qDebug() << "readout took" << ads1115_p->getLastTimeInterval() << "ms";
+            // qDebug() << "single ended channels:";
+            // qDebug() << "ch0:" << ads1115_p->readADC(0) << "ch1:" << ads1115_p->readADC(1)
+            //          << "ch2: " << ads1115_p->readADC(2) << "ch3:" << ads1115_p->readADC(3);
+            // ads1115_p->setDiffMode(true);
+            // qDebug() << "diff channels:";
+            // qDebug() << "ch0-1:" << ads1115_p->readADC(0) << "ch0-3: " << ads1115_p->readADC(1)
+            //          << "ch1-3:" << ads1115_p->readADC(2) << "ch2-3: " << ads1115_p->readADC(3);
+            // ads1115_p->setDiffMode(false);
+            // qDebug() << "readout took" << ads1115_p->getLastTimeInterval() << "ms";
         }
     }
 
