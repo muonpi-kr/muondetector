@@ -451,9 +451,11 @@ Daemon::Daemon(configuration cfg, QObject* parent)
         eeprom_value.eeprom = true;
         mcp4728_p->readChannel(Config::Hardware::DAC::Channel::bias, eeprom_value);
         if (eeprom_value.value == 0) {
-            setBiasVoltage(Config::Hardware::DAC::Voltage::bias);
-            setDacThresh(Config::Hardware::DAC::Channel::threshold[0], Config::Hardware::DAC::Voltage::threshold[0]);
-            setDacThresh(Config::Hardware::DAC::Channel::threshold[1], Config::Hardware::DAC::Voltage::threshold[1]);
+            if(verbose > 2) qDebug () << "eeprom_value is 0, using default configuration";
+	    for(int i=0; i<2; i++){
+            setDacThresh(Config::Hardware::DAC::Channel::threshold[i],
+			   config.thresholdVoltage[i] >=0 ? config.thresholdVoltage[i] : Config::Hardware::DAC::Voltage::threshold[i]);
+	    }
         }
     }
 
