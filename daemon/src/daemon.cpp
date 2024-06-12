@@ -431,8 +431,12 @@ Daemon::Daemon(configuration cfg, QObject* parent)
     }
 
     for (int channel = 0; channel < 2; channel++) {
+	if(verbose > 2) qDebug() << "threshold config voltage "<<channel
+			       << "["<<Config::Hardware::DAC::Channel::threshold[channel]<<"]"<<"\t" 
+		               << config.thresholdVoltage[channel];
         if (config.thresholdVoltage[Config::Hardware::DAC::Channel::threshold[channel]] < 0.
             && mcp4728_p->probeDevicePresence()) {
+            if(verbose > 2) qDebug () << "threshold is not set, default eeprom/dac read start";
             MCP4728::DacChannel dacChannel;
             MCP4728::DacChannel eepromChannel;
             eepromChannel.eeprom = true;
