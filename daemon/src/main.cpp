@@ -441,14 +441,30 @@ int main(int argc, char* argv[])
         if (!ok) {
             daemonConfig.thresholdVoltage[0] = -1.;
             qCritical() << "error in value for discr1 (maybe not a float)";
-        }
+        }else{
+            if(verbose > 2) qDebug() << "set discr1\t"<< daemonConfig.thresholdVoltage[0];   
+	}
+    }else{
+        try{
+	    int model = cfg.lookup("threshold1");
+	    daemonConfig.thresholdVoltage[0] = float(model)/1000.;
+	    if(verbose > 2) qDebug() << "setdiscr1 "<< float(model)/1000. <<"(config)";
+	}catch(const libconfig::SettingNotFoundException& nfex){}
     }
     if (parser.isSet(discr2Option)) {
         daemonConfig.thresholdVoltage[1] = parser.value(discr2Option).toFloat(&ok);
         if (!ok) {
             daemonConfig.thresholdVoltage[1] = -1.;
             qCritical() << "error in value for discr2 (maybe not a float)";
-        }
+        }else{
+            if(verbose > 2) qDebug() << "set discr2\t"<< daemonConfig.thresholdVoltage[1];   
+	}
+    }else{
+        try{
+	    int model = cfg.lookup("threshold2");
+	    daemonConfig.thresholdVoltage[1] = float(model)/1000.;
+	    if(verbose > 2) qDebug() << "setdiscr2 "<< float(model)/1000. <<"(config)";
+	}catch(const libconfig::SettingNotFoundException& nfex){}
     }
     if (parser.isSet(biasVoltageOption)) {
         daemonConfig.biasVoltage = parser.value(biasVoltageOption).toFloat(&ok);
