@@ -35,7 +35,7 @@ constexpr std::size_t lock_in_min_histogram_entries { 1500 };
 constexpr std::size_t lock_in_max_histogram_entries { 8000 };
 
 namespace MQTT {
-    constexpr const char* host { "data.muonpi.org" };
+    constexpr const char* host { "muonpi.sscc.uos.ac.kr" };
     constexpr int port { 1883 };
     constexpr int qos { 1 };
     constexpr std::chrono::seconds retry_period { 2 };
