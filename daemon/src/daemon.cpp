@@ -463,6 +463,7 @@ Daemon::Daemon(configuration cfg, QObject* parent)
         MCP4728::DacChannel dacChannel;
         MCP4728::DacChannel eepromChannel;
         eepromChannel.eeprom = true;
+        setBiasVoltage(Config::Hardware::DAC::Voltage::bias);
         mcp4728_p->readChannel(Config::Hardware::DAC::Channel::bias, dacChannel);
         mcp4728_p->readChannel(Config::Hardware::DAC::Channel::bias, eepromChannel);
         config.biasVoltage = MCP4728::code2voltage(dacChannel);
