@@ -125,9 +125,9 @@ set(MUONDETECTOR_LOGIN_INSTALL_FILES
     "${MUONDETECTOR_DAEMON_CONFIG_DIR}/muondetector-login"
     )
 
-set(MUONDETECTOR_DAEMON_INSTALL_FILES
-    "${MUONDETECTOR_DAEMON_CONFIG_DIR}/muondetector.conf"
-    )
+#set(MUONDETECTOR_DAEMON_INSTALL_FILES
+#    "${MUONDETECTOR_DAEMON_CONFIG_DIR}/muondetector.conf"
+#    )
 
 configure_file(
     "${MUONDETECTOR_DAEMON_CONFIG_DIR}/muondetector-daemon.1"
